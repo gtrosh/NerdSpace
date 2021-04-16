@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Результаты поиска</h1><br />
+
+<ul>
+  {% for post in search_results %}
+  <li>
+    {{ post.text }}
+  </li>
+</ul>
+{% empty %}
+<p>Ничего не найдено</p>
+{% endfor %}
+
+{% endblock %}

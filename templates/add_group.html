@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Добавить новую группу{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Добавить новую группу</h1>
+<br /><br />
+<div class="row g-3">
+  <div class="col-sm-7">
+    <div class="form-control">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-2 d-md-block">
+          <button class='btn btn-info'>Добавить группу</button>
+          <a href="{% url 'index' %}" class="btn btn-secondary">Отменить</a><br />
+        </div>
+        {% else%}
+        Кажется, ты не туда попал. Авторизуйся, пожалуйста
+
+        {% endif %}
+        <!-- </form> -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}

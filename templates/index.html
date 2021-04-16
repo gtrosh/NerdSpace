@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %} Последние обновления {% endblock %}
+
+{% block content %}
+{% include "menu.html" with index=True %}
+<div class="container">
+
+  <!-- Banner -->
+  <section id="banner">
+    <div class="content">
+      <header>
+
+        <h1>Добро пожаловать<br />
+          в NerdSpace!</h1>
+        <p>Сообщество для всех, кто считает себя немного ботаником, а также их друзей</p>
+      </header>
+      <p>В этом сообществе мы обсуждаем (за)умные книги, фильмы, и прочие людские творения. Не забудьте свое чувство юмора при входе! ;-)</p>
+    </div>
+
+    <span class="image object">
+      <img src="static/images/learning-4264032_1280.jpg" alt="" />
+    </span>
+  </section>
+</div>
+
+<div class="container">
+  <h2> Последние обновления на сайте</h2>
+  <!-- Вывод ленты записей -->
+  {% load cache %}
+  {% cache 20 index_page page %}
+  {% for post in page %}
+  {% include "post_item.html" with post=post %}
+  {% endfor %}
+  {% endcache %}
+</div>
+
+<!-- Вывод паджинатора -->
+{% if page.has_other_pages %}
+{% include "paginator.html" %}
+{% endif %}
+
+{% endblock %}

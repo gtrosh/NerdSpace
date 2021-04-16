@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Технологии проекта{% endblock %}
+{% block content %}
+{% load user_filters %}
+<main role="main" class="container">
+  <div class="row">
+    <!-- Левый вспомогательный блок -->
+    <div class="col-md-4 mb-3 mt-1">
+      <div class="box">
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="h3">
+                Технологии
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="h6 text-muted">
+                Что использовано в проекте
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Тело страницы -->
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-text">
+          <p>Основные технологии, использованные при разработке этого проекта:</p>
+          <ul>
+            <li>Python 3.8.5</li>
+            <li>Django 2.2.6</li>
+            <li>Bootstrap 4.3</li>
+            <li>Github</li>
+            <li>Шаблон сайта взят с ресурса <a href="https://html5up.net/">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

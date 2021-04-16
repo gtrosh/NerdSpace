@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}Best Social Network for Nerds{% endblock %} | NerdSpace</title>
+  <!-- Загрузка статики -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</head>
+
+<body class="is-preload">
+  <!-- Wrapper -->
+  <div id="wrapper">
+    {% include 'nav.html' %}
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+        <header id="header">
+          <a href="{% url 'index' %}" class="logo"><strong>NerdSpace</strong> by GaTroshKa</a>
+          <ul class="icons">
+            <li><a href="https://github.com/gtrosh" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+            <li><a href="https://twitter.com/GTroshkina" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="https://www.instagram.com/gtroshka/?hl=ru" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="mailto:GTrosh.ka@yandex.ru" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+          </ul>
+        </header>
+        <div class="container">
+          {% block content %}
+          <!-- Содержимое страницы -->
+          {% endblock content %}
+
+          {% include 'footer.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/browser.min.js' %}"></script>
+  <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+  <script src="{% static 'assets/js/util.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
