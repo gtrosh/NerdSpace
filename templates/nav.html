@@ -18,6 +18,7 @@
           {% if user.is_authenticated %}
           Пользователь: {{ user.username }}
           <li><a href="{% url 'new_post' %}">Новая запись</a></li>
+          <li><a href="{% url 'add_group' %}">Новая группа</a></li>
           <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
           <li><a href="{% url 'logout' %}">Выйти</a></li>
           {% else %}

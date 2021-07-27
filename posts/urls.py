@@ -1,10 +1,10 @@
 from django.urls import path
 
 from . import views
-
-# from .views import SearchResultsView
+from .views import AddGroupView
 
 urlpatterns = [
+    path('add_group/', AddGroupView.as_view(), name='add_group'),
     path('search/', views.search, name='search_results'),
 #     path('search/', SearchResultsView.as_view(), name='search_results'),
     path('', views.index, name='index'),
@@ -23,4 +23,5 @@ urlpatterns = [
          name='post_edit'),
     path('<str:username>/<int:post_id>/comment', views.add_comment,
          name="add_comment"),
+    
 ]

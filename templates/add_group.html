@@ -10,10 +10,10 @@
     <div class="form-control">
       <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        <!-- {{ form.as_p }} -->
         <div class="d-grid gap-2 d-md-block">
           <button class='btn btn-info'>Добавить группу</button>
-          <a href="{% url 'index' %}" class="btn btn-secondary">Отменить</a><br />
+          <a href="{% url 'index' %}" class="button">Отменить</a><br />
         </div>
         {% else%}
         Кажется, ты не туда попал. Авторизуйся, пожалуйста

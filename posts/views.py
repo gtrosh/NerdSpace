@@ -3,12 +3,11 @@ from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.views.generic import CreateView
 
 from .forms import CommentForm, PostForm
 from .models import Follow, Group, Post, User
 from .modules import is_follower
-
-# from django.views.generic import ListView
 
 
 def search(request):
@@ -77,7 +76,8 @@ def profile(request, username):
     return render(request, 'profile.html', {'profile': author,
                                             'posts': profile_posts,
                                             'page': page,
-                                            'following': following})
+                                            'following': following,
+                                            'group': group})
 
 
 def post_view(request, username, post_id):
@@ -160,3 +160,9 @@ def profile_unfollow(request, username):
     if author != request.user:
         Follow.objects.filter(user=request.user, author=author).delete()
     return redirect('profile', username=username)
+
+
+class AddGroupView(CreateView):
+    model = Group
+    template_name = 'add_group'
+    fields = '__all__'
